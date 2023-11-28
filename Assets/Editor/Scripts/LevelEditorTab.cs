@@ -154,8 +154,7 @@ public class LevelEditorTab : EditorTab
         GUILayout.BeginHorizontal();
         EditorGUILayout.LabelField(new GUIContent("Theme", "The theme of this level."),
             GUILayout.Width(EditorGUIUtility.labelWidth));
-        currentLevelTheme = (LevelTheme)EditorGUILayout.EnumPopup(currentLevelTheme, GUILayout.Width(100));
-        currentLevel.LevelTheme = currentLevelTheme;
+        currentLevel.LevelTheme = (LevelTheme)EditorGUILayout.EnumPopup(currentLevel.LevelTheme, GUILayout.Width(100));
         GUILayout.EndHorizontal();
 
         GUILayout.BeginHorizontal();
