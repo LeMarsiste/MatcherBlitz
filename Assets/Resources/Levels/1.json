@@ -1,0 +1,308 @@
+{
+    "ID": 1,
+    "Height": 10,
+    "Width": 10,
+    "TimeLimit": 360,
+    "Tiles": [
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Explosive"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Explosive"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Explosive"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Explosive"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        }
+    ]
+}
