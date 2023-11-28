@@ -21,6 +21,8 @@ public class LevelEditorTab : EditorTab
 
     private TileType currentTileType;
 
+    private LevelTheme currentLevelTheme;
+
     private enum BrushMode
     {
         Tile,
@@ -146,17 +148,20 @@ public class LevelEditorTab : EditorTab
         GUILayout.BeginHorizontal();
         EditorGUILayout.LabelField(new GUIContent("Level number", "The number of this level."),
             GUILayout.Width(EditorGUIUtility.labelWidth));
-        currentLevel.ID = EditorGUILayout.IntField(currentLevel.ID, GUILayout.Width(30));
+        currentLevel.ID = EditorGUILayout.IntField(currentLevel.ID, GUILayout.Width(50));
         GUILayout.EndHorizontal();
 
-        GUILayout.Space(15);
+        GUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField(new GUIContent("Theme", "The theme of this level."),
+            GUILayout.Width(EditorGUIUtility.labelWidth));
+        currentLevelTheme = (LevelTheme)EditorGUILayout.EnumPopup(currentLevelTheme, GUILayout.Width(100));
+        currentLevel.LevelTheme = currentLevelTheme;
+        GUILayout.EndHorizontal();
 
         GUILayout.BeginHorizontal();
-
         EditorGUILayout.LabelField(new GUIContent("Time", "The maximum number of seconds of this level."),
             GUILayout.Width(EditorGUIUtility.labelWidth));
-
-        currentLevel.TimeLimit = EditorGUILayout.IntField(currentLevel.TimeLimit, GUILayout.Width(30));
+        currentLevel.TimeLimit = EditorGUILayout.IntField(currentLevel.TimeLimit, GUILayout.Width(75));
         GUILayout.EndHorizontal();
 
         GUILayout.EndVertical();

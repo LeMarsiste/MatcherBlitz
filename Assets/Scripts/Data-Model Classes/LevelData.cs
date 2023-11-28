@@ -10,6 +10,7 @@ public class LevelData
     public int Height;
     public int Width;
     public int TimeLimit;
+    public LevelTheme LevelTheme;
 
     public List<LevelTile> Tiles = new List<LevelTile>();
 }
