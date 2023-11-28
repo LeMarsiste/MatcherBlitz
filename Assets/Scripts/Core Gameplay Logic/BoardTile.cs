@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class BoardTile : MonoBehaviour
 {
-    public int x;
-    public int y;
+    public int index;
+    public int PairedIndex;
+
+    
+
+    private void OnMouseDown()
+    {
+        UIController.Instance.OnTileClicked?.Invoke(index);
+    }
+
 }

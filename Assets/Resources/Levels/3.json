@@ -1,0 +1,84 @@
+{
+    "ID": 3,
+    "Height": 5,
+    "Width": 5,
+    "TimeLimit": 180,
+    "LevelTheme": "Theldrassil",
+    "Tiles": [
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
+        }
+    ]
+}

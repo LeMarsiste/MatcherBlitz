@@ -10,7 +10,6 @@ using UnityEngine.UIElements;
 
 public class DataCenter : MonoBehaviour
 {
-    public static DataCenter Instance { get; private set; }
 
     #region Members
     #region Public
@@ -41,10 +40,6 @@ public class DataCenter : MonoBehaviour
     #region Unity Callbacks
     private void Awake()
     {
-        if (Instance != null)
-            Destroy(Instance);
-        Instance = this;
-
         if (!PlayerPrefs.HasKey("Level_Index"))
             PlayerPrefs.SetInt("Level_Index", 1);
         int currentLevel = PlayerPrefs.GetInt("Level_Index");
@@ -88,7 +83,7 @@ public class DataCenter : MonoBehaviour
             for (int i = 0; i < CurrentLevelData.Width; i++)
             {
                 LevelTile CurrentLevelDataTile = CurrentLevelData.Tiles[i + (j * CurrentLevelData.Width)];
-                GameObject tile = CreateTileFromLevel(CurrentLevelDataTile, CurrentLevelData.LevelTheme, i, j);
+                GameObject tile = CreateTileFromLevel(CurrentLevelDataTile, CurrentLevelData.LevelTheme, Tiles.Count);
                 if (tile != null)
                 {
                     tile.name = "Tile i:" + i.ToString() + " j:" + j;
@@ -131,15 +126,20 @@ public class DataCenter : MonoBehaviour
         var maxWidthHeight = Mathf.Max(totalWidth, totalHeight);
 
         var cameraMultiplier = (maxWidthHeight * zoomLevel) > 12 ? (maxWidthHeight * zoomLevel) : 12; // (totalWidth * zoomLevel) but as if the width is at least 9 blocks
+        cameraMultiplier = (maxWidthHeight * zoomLevel);
         Camera.main.orthographicSize = cameraMultiplier * (Screen.height / (float)Screen.width) * 0.5f;
 
+        GameManager.RandomizeTheCards(Tiles);
     }
-
+    public GameObject GetTile(int index)
+    {
+        return Tiles[index];
+    }
 
     #endregion
 
     #region Private
-    private GameObject CreateTileFromLevel(LevelTile levelTile, LevelTheme theme, int x, int y)
+    private GameObject CreateTileFromLevel(LevelTile levelTile, LevelTheme theme, int index)
     {
         if (levelTile is LevelTile) //We can add other tiles in the future!
         {
@@ -150,8 +150,7 @@ public class DataCenter : MonoBehaviour
                 case TileType.Explosive:
                 case TileType.Normal:
                     var tile = DefaultTilePool.GetObject();
-                    tile.GetComponent<BoardTile>().x = x;
-                    tile.GetComponent<BoardTile>().y = y;
+                    tile.GetComponent<BoardTile>().index = index;
                     tile.GetComponent<SpriteRenderer>().sprite = ThemePresets[themeIndices[theme]].CardbackSprite;
                     return tile;
 

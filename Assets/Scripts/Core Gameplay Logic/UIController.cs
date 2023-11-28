@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    public static UIController Instance { get; private set; }
+    public static UIController Instance;
 
     #region Members
     #region Public
@@ -13,6 +14,8 @@ public class UIController : MonoBehaviour
     public GameManager GameManager;
     [Space(10)]
     public Image BackgroundImage;
+
+    [HideInInspector] public UnityEvent<int> OnTileClicked;
     #endregion
 
 
@@ -28,16 +31,31 @@ public class UIController : MonoBehaviour
         if (Instance != null)
             Destroy(Instance);
         Instance = this;
+
+        OnTileClicked.AddListener(onTileClicked);
     }
     #endregion
 
     #region Methods
     #region Public
     public void Setbackground(Sprite backgroundSprite) => BackgroundImage.sprite = backgroundSprite;
+
+    public void ResetTiles(List<GameObject> tiles)
+    {
+
+    }
+    public void DeleteTiles(List<GameObject> tiles)
+    {
+        foreach (GameObject obj in tiles)
+            Destroy(obj);
+    }
     #endregion
 
     #region Private
-
+    private void onTileClicked(int index)
+    {
+        GameManager.TileClicked(index);
+    }
     #endregion
     #endregion
 }
