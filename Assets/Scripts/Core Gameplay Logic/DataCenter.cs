@@ -30,7 +30,7 @@ public class DataCenter : MonoBehaviour
     #endregion
     #region Private
     private List<GameObject> Tiles = new List<GameObject>();
-    private  Dictionary<int, Sprite> tileTextures = new Dictionary<int, Sprite>();
+    private Dictionary<int, Sprite> tileTextures = new Dictionary<int, Sprite>();
     private Dictionary<LevelTheme, int> themeIndices = new Dictionary<LevelTheme, int>();
     private float tileW;
     private float tileH;

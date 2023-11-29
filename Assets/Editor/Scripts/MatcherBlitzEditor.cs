@@ -30,6 +30,7 @@ public class MatcherBlitzEditor : EditorWindow
     /// </summary>
     private void OnEnable()
     {
+        tabs.Add(new SettingsTab(this));
         tabs.Add(new LevelEditorTab(this));
         selectedTabIndex = 0;
     }
@@ -40,7 +41,7 @@ public class MatcherBlitzEditor : EditorWindow
     private void OnGUI()
     {
         selectedTabIndex = GUILayout.Toolbar(selectedTabIndex,
-            new[] { "Level editor" });
+                new[] { "Game settings", "Level editor" });
         if (selectedTabIndex >= 0 && selectedTabIndex < tabs.Count)
         {
             var selectedEditor = tabs[selectedTabIndex];
