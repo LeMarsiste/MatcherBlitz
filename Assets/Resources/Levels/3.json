@@ -2,7 +2,7 @@
     "ID": 3,
     "Height": 5,
     "Width": 5,
-    "TimeLimit": 180,
+    "TimeLimit": 60,
     "LevelTheme": "Theldrassil",
     "Tiles": [
         {

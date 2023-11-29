@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
     [Header("Hierarchy Objects")]
     public UIController UIController;
     public DataCenter DataCenter;
-    [Space(10)]
-    public ObjectPool tilePool;
 
     #endregion
 
@@ -25,6 +23,9 @@ public class GameManager : MonoBehaviour
     private int currentClickedTile = -1;
     private Queue<int> clickedTilesQueue = new Queue<int>();
 
+    private int currentScore = 0;
+
+    private bool GameFinished = false;
     #endregion
     #endregion
 
@@ -38,9 +39,17 @@ public class GameManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        currentTime += Time.deltaTime;
-        if (currentTime > levelTimeLimit)
-            EndTheGame();
+        if (!GameFinished)
+        {
+            currentTime = currentTime - Time.fixedDeltaTime;
+            UIController.OnHealthChanged?.Invoke(currentTime / levelTimeLimit);
+
+            if (currentTime < 0)
+                LoseTheGame();
+            if (Pairs.Count == 0)
+                WinTheGame();
+        }
+
     }
 
     #endregion
@@ -49,6 +58,9 @@ public class GameManager : MonoBehaviour
     #region Public
     public void RandomizeTheCards(List<GameObject> tiles)
     {
+        currentTime = levelTimeLimit = DataCenter.GetLevelTimeLimit();
+
+        
         List<int> availableIndices = new List<int>(),
             availableSpriteIndices = new List<int>();
         for (int i = 0; i < tiles.Count; i++)
@@ -100,6 +112,9 @@ public class GameManager : MonoBehaviour
     IEnumerator tileClicked()
     {
         yield return new WaitForSeconds(1f);
+        if (clickedTilesQueue.Count == 0)
+            yield break;
+
         int tileIndex = clickedTilesQueue.Dequeue();
         if (currentClickedTile == -1)
         {
@@ -112,7 +127,20 @@ public class GameManager : MonoBehaviour
             tiles.Add(DataCenter.GetTile(currentClickedTile));
             if (Pairs.Contains(new Vector2(currentClickedTile, tileIndex)) ||
                 Pairs.Contains(new Vector2(tileIndex, currentClickedTile)))
+            {
                 UIController.DeleteTiles(tiles);
+                int score = 0;
+                score += (int)DataCenter.GetTileType(tileIndex) +
+                         (int)DataCenter.GetTileType(currentClickedTile) + 2;
+                currentScore += score;
+                UIController.OnScoreChanged?.Invoke(score);
+
+                currentTime += (int)DataCenter.GetTileType(tileIndex) +
+                         (int)DataCenter.GetTileType(currentClickedTile);
+
+                Pairs.Remove(new Vector2(currentClickedTile, tileIndex));
+                Pairs.Remove(new Vector2(tileIndex, currentClickedTile));
+            }
             else
                 UIController.ResetTiles(tiles);
             currentClickedTile = -1;
@@ -124,9 +152,20 @@ public class GameManager : MonoBehaviour
 
     #region Private
 
-    private void EndTheGame()
+    private void LoseTheGame()
     {
-
+        DataCenter.HideAllTiles();
+        GameFinished = true;
+        clickedTilesQueue.Clear();
+        UIController.ShowLoseScreen();
+    }
+    private void WinTheGame()
+    {
+        int currentLevel = PlayerPrefs.GetInt("Level_Index");
+        PlayerPrefs.SetInt("Level_Index", currentLevel + 1);
+        GameFinished = true;
+        clickedTilesQueue.Clear();
+        UIController.ShowWinScreen();
     }
     private void PairTiles(GameObject pair1, GameObject pair2,Sprite clickedSprite)
     {

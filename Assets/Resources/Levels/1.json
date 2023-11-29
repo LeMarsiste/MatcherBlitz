@@ -1,8 +1,8 @@
 {
     "ID": 1,
-    "Height": 7,
-    "Width": 7,
-    "TimeLimit": 180,
+    "Height": 6,
+    "Width": 6,
+    "TimeLimit": 120,
     "LevelTheme": "Twilight",
     "Tiles": [
         {
@@ -12,30 +12,6 @@
             "Type": "Hole"
         },
         {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
             "Type": "Normal"
         },
         {
@@ -54,10 +30,22 @@
             "Type": "Normal"
         },
         {
-            "Type": "Normal"
+            "Type": "Hole"
+        },
+        {
+            "Type": "Hole"
         },
         {
             "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
         },
         {
             "Type": "Normal"
@@ -75,13 +63,7 @@
             "Type": "Normal"
         },
         {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
+            "Type": "Hole"
         },
         {
             "Type": "Normal"
@@ -96,13 +78,7 @@
             "Type": "Normal"
         },
         {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
+            "Type": "Hole"
         },
         {
             "Type": "Normal"
@@ -112,15 +88,6 @@
         },
         {
             "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
         },
         {
             "Type": "Normal"
@@ -135,16 +102,10 @@
             "Type": "Hole"
         },
         {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
             "Type": "Normal"
         },
         {
-            "Type": "Hole"
+            "Type": "Normal"
         },
         {
             "Type": "Hole"

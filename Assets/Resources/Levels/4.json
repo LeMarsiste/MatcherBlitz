@@ -2,7 +2,7 @@
     "ID": 4,
     "Height": 8,
     "Width": 8,
-    "TimeLimit": 250,
+    "TimeLimit": 45,
     "LevelTheme": "Hyjal",
     "Tiles": [
         {

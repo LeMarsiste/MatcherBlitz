@@ -47,7 +47,7 @@ public class DataCenter : MonoBehaviour
         fsSerializer fsSerializer = new fsSerializer();
         CurrentLevelData = FileUtils.LoadJsonFile<LevelData>(fsSerializer,
                 "Levels/" + currentLevel);
-        
+
 
         for (int i = 0; i < ThemePresets.Count; i++)
         {
@@ -69,7 +69,6 @@ public class DataCenter : MonoBehaviour
         {
             var filename = Path.GetFileNameWithoutExtension(file.Name);
             var id = int.Parse(Path.GetFileNameWithoutExtension(file.Name));
-            Debug.Log(filename + id);
             tileTextures[id] = Resources.Load<Sprite>("Cards/" + filename);
         }
         MaxSpriteIndex = tileTextures.Keys.Count;
@@ -150,7 +149,22 @@ public class DataCenter : MonoBehaviour
     }
     public Sprite GetTileImage(int index)
     {
-        return tileTextures[index+1];
+        return tileTextures[index + 1];
+    }
+    public float GetLevelTimeLimit()
+    {
+        return CurrentLevelData.TimeLimit;
+    }
+    public TileType GetTileType(int index)
+    {
+        return CurrentLevelData.Tiles[index].Type;
+    }
+
+    public void HideAllTiles()
+    {
+        foreach (GameObject tile in Tiles)
+            if (tile != null)
+                tile.SetActive(false);
     }
     #endregion
 
@@ -167,7 +181,7 @@ public class DataCenter : MonoBehaviour
                 case TileType.Normal:
                     var tile = DefaultTilePool.GetObject();
                     tile.GetComponent<BoardTile>().index = index;
-                    tile.GetComponent<SpriteRenderer>().sprite  = tile.GetComponent<BoardTile>().NormalSprite = ThemePresets[themeIndices[theme]].CardbackSprite;
+                    tile.GetComponent<SpriteRenderer>().sprite = tile.GetComponent<BoardTile>().NormalSprite = ThemePresets[themeIndices[theme]].CardbackSprite;
                     return tile;
 
                 case TileType.Hole:

@@ -1,39 +1,12 @@
 {
     "ID": 2,
-    "Height": 8,
-    "Width": 8,
-    "TimeLimit": 300,
+    "Height": 7,
+    "Width": 7,
+    "TimeLimit": 90,
     "LevelTheme": "Icecrown",
     "Tiles": [
         {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
+            "Type": "Normal"
         },
         {
             "Type": "Hole"
@@ -42,58 +15,7 @@
             "Type": "Normal"
         },
         {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Hole"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
+            "Type": "Golden"
         },
         {
             "Type": "Normal"
@@ -105,22 +27,43 @@
             "Type": "Normal"
         },
         {
-            "Type": "Normal"
+            "Type": "Hole"
+        },
+        {
+            "Type": "Explosive"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Golden"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Explosive"
+        },
+        {
+            "Type": "Hole"
         },
         {
             "Type": "Normal"
         },
         {
-            "Type": "Normal"
+            "Type": "Hole"
         },
         {
             "Type": "Normal"
         },
         {
-            "Type": "Normal"
+            "Type": "Golden"
         },
         {
             "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
         },
         {
             "Type": "Normal"
@@ -147,28 +90,10 @@
             "Type": "Golden"
         },
         {
-            "Type": "Golden"
-        },
-        {
             "Type": "Normal"
         },
         {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
-        },
-        {
-            "Type": "Normal"
+            "Type": "Hole"
         },
         {
             "Type": "Normal"
@@ -177,25 +102,55 @@
             "Type": "Golden"
         },
         {
-            "Type": "Golden"
+            "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Explosive"
+        },
+        {
+            "Type": "Hole"
         },
         {
             "Type": "Golden"
         },
         {
-            "Type": "Golden"
+            "Type": "Hole"
+        },
+        {
+            "Type": "Explosive"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Normal"
+        },
+        {
+            "Type": "Hole"
+        },
+        {
+            "Type": "Normal"
         },
         {
             "Type": "Golden"
         },
         {
-            "Type": "Golden"
+            "Type": "Normal"
         },
         {
-            "Type": "Golden"
+            "Type": "Hole"
         },
         {
-            "Type": "Golden"
+            "Type": "Normal"
         }
     ]
 }
