@@ -42,7 +42,8 @@ public class UIController : MonoBehaviour
 
     public void ResetTiles(List<GameObject> tiles)
     {
-
+        foreach (GameObject tile in tiles)
+            tile.GetComponent<BoardTile>().ResetTile();
     }
     public void DeleteTiles(List<GameObject> tiles)
     {

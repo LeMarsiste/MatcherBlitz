@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     private float currentTime = 0;
 
     private int currentClickedTile = -1;
+    private Queue<int> clickedTilesQueue = new Queue<int>();
 
     #endregion
     #endregion
@@ -48,10 +49,13 @@ public class GameManager : MonoBehaviour
     #region Public
     public void RandomizeTheCards(List<GameObject> tiles)
     {
-        List<int> availableIndices = new List<int>();
+        List<int> availableIndices = new List<int>(),
+            availableSpriteIndices = new List<int>();
         for (int i = 0; i < tiles.Count; i++)
             if (tiles[i] != null)
                 availableIndices.Add(i);
+        for (int i = 0; i < DataCenter.MaxSpriteIndex; i++)
+            availableSpriteIndices.Add(i);
 
         bool isOddLevel = availableIndices.Count % 2 == 1;
         if (isOddLevel)
@@ -70,7 +74,15 @@ public class GameManager : MonoBehaviour
             GameObject pair2Object = tiles[availableIndices[pair2Index]];
             availableIndices.RemoveAt(pair2Index);
 
-            PairTiles(pair1Object, pair2Object);
+            int spriteIndex = Random.Range(0, availableSpriteIndices.Count);
+            Sprite sprite = DataCenter.GetTileImage(spriteIndex);
+            availableSpriteIndices.RemoveAt(spriteIndex);
+
+            if(availableSpriteIndices.Count == 0) //For now ... have to find a better way to handle large maps, currently the max map size is 50 active tiles
+                for (int i = 0; i < DataCenter.MaxSpriteIndex; i++)
+                    availableSpriteIndices.Add(i);
+
+            PairTiles(pair1Object, pair2Object,sprite);
         }
 
     }
@@ -81,6 +93,14 @@ public class GameManager : MonoBehaviour
     }
     public void TileClicked(int tileIndex)
     {
+        clickedTilesQueue.Enqueue(tileIndex);
+        if (clickedTilesQueue.Count == 1) 
+            StartCoroutine(tileClicked());
+    }
+    IEnumerator tileClicked()
+    {
+        yield return new WaitForSeconds(1f);
+        int tileIndex = clickedTilesQueue.Dequeue();
         if (currentClickedTile == -1)
         {
             currentClickedTile = tileIndex;
@@ -97,6 +117,8 @@ public class GameManager : MonoBehaviour
                 UIController.ResetTiles(tiles);
             currentClickedTile = -1;
         }
+        if (clickedTilesQueue.Count != 0)
+            StartCoroutine(tileClicked());
     }
     #endregion
 
@@ -106,10 +128,12 @@ public class GameManager : MonoBehaviour
     {
 
     }
-    private void PairTiles(GameObject pair1, GameObject pair2)
+    private void PairTiles(GameObject pair1, GameObject pair2,Sprite clickedSprite)
     {
         BoardTile pair1Tile = pair1.GetComponent<BoardTile>(),
             pair2Tile = pair2.GetComponent<BoardTile>();
+        pair1Tile.ClickedSprite = clickedSprite;
+        pair2Tile.ClickedSprite = clickedSprite;
         pair1Tile.PairedIndex = pair2Tile.index;
         pair2Tile.PairedIndex = pair1Tile.index;
         Pairs.Add(new Vector2(pair1Tile.index, pair2Tile.index));

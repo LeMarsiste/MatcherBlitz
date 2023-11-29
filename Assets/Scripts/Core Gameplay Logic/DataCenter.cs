@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 using TMPro;
 using Unity.VisualScripting;
@@ -20,7 +21,7 @@ public class DataCenter : MonoBehaviour
     public ObjectPool DefaultTilePool;
     public Transform BoardCenter;
 
-
+    [HideInInspector] public int MaxSpriteIndex = 0;
     [Header("Presets")]
     public List<ThemeScriptableObject> ThemePresets;
 
@@ -29,7 +30,7 @@ public class DataCenter : MonoBehaviour
     #endregion
     #region Private
     private List<GameObject> Tiles = new List<GameObject>();
-
+    private  Dictionary<int, Sprite> tileTextures = new Dictionary<int, Sprite>();
     private Dictionary<LevelTheme, int> themeIndices = new Dictionary<LevelTheme, int>();
     private float tileW;
     private float tileH;
@@ -62,6 +63,18 @@ public class DataCenter : MonoBehaviour
     #region Public
     public void RestartLevel()
     {
+        var editorImagesPath = new DirectoryInfo(Application.dataPath + "/Resources/Cards");
+        var fileInfo = editorImagesPath.GetFiles("*.png", SearchOption.TopDirectoryOnly);
+        foreach (var file in fileInfo)
+        {
+            var filename = Path.GetFileNameWithoutExtension(file.Name);
+            var id = int.Parse(Path.GetFileNameWithoutExtension(file.Name));
+            Debug.Log(filename + id);
+            tileTextures[id] = Resources.Load<Sprite>("Cards/" + filename);
+        }
+        MaxSpriteIndex = tileTextures.Keys.Count;
+
+
         Tiles = new List<GameObject>(CurrentLevelData.Width * CurrentLevelData.Height);
 
         foreach (ObjectPool pool in TilePools.GetComponentsInChildren<ObjectPool>())
@@ -135,7 +148,10 @@ public class DataCenter : MonoBehaviour
     {
         return Tiles[index];
     }
-
+    public Sprite GetTileImage(int index)
+    {
+        return tileTextures[index+1];
+    }
     #endregion
 
     #region Private
@@ -151,7 +167,7 @@ public class DataCenter : MonoBehaviour
                 case TileType.Normal:
                     var tile = DefaultTilePool.GetObject();
                     tile.GetComponent<BoardTile>().index = index;
-                    tile.GetComponent<SpriteRenderer>().sprite = ThemePresets[themeIndices[theme]].CardbackSprite;
+                    tile.GetComponent<SpriteRenderer>().sprite  = tile.GetComponent<BoardTile>().NormalSprite = ThemePresets[themeIndices[theme]].CardbackSprite;
                     return tile;
 
                 case TileType.Hole:
