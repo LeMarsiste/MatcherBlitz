@@ -33,6 +33,7 @@ Currently the game has 4 tile types:
 2- There are some Screen scalling issues that need to be addressed
 3- An Options pop-up would be also amazing to have
 4- Adding additional effects to the gameboard for GOLDEN and EXPLOSIVE tiles
+5- Changing the Name from "MatcherBlitz" to "Memory-Craft Chronicles" (because i changed my game design xD)
 
 ## Contributing
 
